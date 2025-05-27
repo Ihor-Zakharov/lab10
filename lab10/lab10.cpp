@@ -1,4 +1,4 @@
-﻿#include <iostream>
+﻿#include <iostream> // virtual inharitance here: istream, ostream
 #include "Athlete.h"
 
 struct A {};
@@ -12,6 +12,8 @@ struct C
 {
     virtual void b() {};
 };
+
+// dynamic cast
 
 int main() 
 {
@@ -39,7 +41,7 @@ int main()
 
     std::cout << "sizeof A: " << sizeof(A) << std::endl;
     std::cout << "sizeof B: " << sizeof(B) << std::endl; 
-    std::cout << "sizeof C: " << sizeof(C) << std::endl; // class info link
+    std::cout << "sizeof C: " << sizeof(C) << std::endl; // has a link to vtable
 
     
     Champion<std::string>* champion = new Champion<std::string>("abc", "cba");
