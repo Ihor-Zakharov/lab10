@@ -17,10 +17,7 @@ class Athlete
 			std::cout << "Exercise athlete" << std::endl;
 		}
 
-		virtual ~Athlete() 
-		{
-			std::cout << "Athlete class has been deleted";
-		};
+		virtual ~Athlete() = default;
 };
 
 template <typename T>
@@ -39,6 +36,8 @@ class Swimmer : virtual public Athlete<T>
 		{
 			(std::cout << ... << args);
 		}
+
+		virtual ~Swimmer() = default;
 };
 
 template<int N>
@@ -75,6 +74,8 @@ public:
 	{
 		std::cout << Fibonacci<N>::value << std::endl;
 	}
+
+	virtual ~Runner() = default;
 };
 
 template <typename T>

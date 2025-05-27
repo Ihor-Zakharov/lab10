@@ -1,10 +1,7 @@
 ﻿#include <iostream>
 #include "Athlete.h"
 
-struct A
-{
-
-};
+struct A {};
 
 struct B
 {
@@ -18,22 +15,23 @@ struct C
 
 int main() 
 {
-    Athlete<int> athlete1 = Swimmer<int>(12, "abc");
+    Swimmer<int> swimmer = Swimmer<int>(12, "abc");
+    Athlete<int> athlete = swimmer; // if reference is being used, derived methods are called
 
-    std::cout << "Athlete 1 exercise: ";
-    athlete1.Exercise();
+    std::cout << "Athlete exercise: ";
+    athlete.Exercise();
 
-    Swimmer<int> athlete2 = Swimmer<int>(12, "abc");
+    std::cout << "Athlete type: " << typeid(athlete).name() << std::endl;
 
-    std::cout << "Athlete 2 exercise: ";
-    athlete2.Exercise();
+    std::cout << "Swimmer exercise: ";
+    swimmer.Exercise();
 
-    std::cout << "Athlete 2 test (true, false, true): ";
-    athlete2.test(true, false, true);
+    std::cout << "Swimmer test (true, false, true): ";
+    swimmer.test(true, false, true);
     std::cout << std::endl;
 
-    std::cout << "Athlete 2 test (12, 34, 56, 78): ";
-    athlete2.test(12, 34, 56, 78);
+    std::cout << "Swimmer test (12, 34, 56, 78): ";
+    swimmer.test(12, 34, 56, 78);
     std::cout << std::endl;
 
     Runner<int> runner = Runner<int>(12, "abc");
@@ -42,6 +40,7 @@ int main()
     std::cout << "sizeof A: " << sizeof(A) << std::endl;
     std::cout << "sizeof B: " << sizeof(B) << std::endl; 
     std::cout << "sizeof C: " << sizeof(C) << std::endl; // class info link
+
     
     Champion<std::string>* champion = new Champion<std::string>("abc", "cba");
     champion->Exercise();
